@@ -1,0 +1,332 @@
+Question (1)(a): Print odd numbers in an array
+**************************************************************
+(i) Using Anonymous Functions
+
+// Sample array
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+// Using filter with an anonymous function to get odd numbers
+const oddNumbers = numbers.filter(function(num) {
+    return num % 2 !== 0;
+});
+
+// Using forEach with an anonymous function to print odd numbers
+oddNumbers.forEach(function(num) {
+    console.log(num);
+});
+--------------------------------------------------------------
+(ii) Using Immediately Invoked Function Expressions (IIFE)
+// Sample array
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+// Using IIFE to immediately filter and print odd numbers
+(function(arr) {
+    const oddNumbers = arr.filter(function(num) {
+        return num % 2 !== 0;
+    });
+    oddNumbers.forEach(function(num) {
+        console.log(num);
+    });
+})(numbers);
+--------------------------------------------------------------
+(iii) using Arrow Functions 
+// Sample array
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+// Using filter with an arrow function to get odd numbers
+const oddNumbers = numbers.filter(num => num % 2 !== 0);
+
+// Using forEach with an arrow function to print odd numbers
+oddNumbers.forEach(num => console.log(num));
+****************************************************************************************************
+Question : (2) Convert all the strings to title caps in a string array
+1. Using Anonymous Functions :
+// Sample array of strings
+const strings = ["hello world", "javascript is awesome", "convert to title case"];
+
+// Function to convert a string to title case
+function toTitleCase(str) {
+    return str.split(' ').map(function(word) {
+        return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+    }).join(' ');
+}
+
+// Using map with an anonymous function to convert each string to title case
+const titleCasedStrings = strings.map(function(str) {
+    return toTitleCase(str);
+});
+
+console.log(titleCasedStrings);
+----------------------------------------------------------------------------------------------------
+2.Using Immediately Invoked Function Expressions (IIFE)
+const stringArray = ["hello world", "javascript is fun"];
+
+const titleCasedArray = (function(arr) {
+    return arr.map(function(str) {
+        return str.split(' ').map(function(word) {
+            return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+        }).join(' ');
+    });
+})(stringArray);
+
+console.log(titleCasedArray); // Output: ["Hello World", "Javascript Is Fun"]
+-----------------------------------------------------------------------------------------------------
+3.Using Anonymous Function
+const stringArray = ["hello world", "javascript is fun"];
+
+const toTitleCase = str => 
+    str.split(' ').map(word => 
+        word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+    ).join(' ');
+
+const titleCasedArray = stringArray.map(toTitleCase);
+
+console.log(titleCasedArray); // Output: ["Hello World", "Javascript Is Fun"]
+**************************************************************************************************************************************
+Question (3) Sum of all numbers in an array
+1. Using Anonymous Functions
+// Sample array of numbers
+const numbers = [1, 2, 3, 4, 5];
+
+// Using reduce with an anonymous function to compute the sum
+const sum = numbers.reduce(function(acc, num) {
+    return acc + num;
+}, 0);
+
+// Printing the result
+console.log(sum); // Output: 15
+------------------------------------------------------------------------------------------
+2. Using Immediately Invoked Function Expressions (IIFE)
+// Sample array of numbers
+const numbers = [1, 2, 3, 4, 5];
+
+// Using IIFE to immediately compute the sum
+const sum = (function(arr) {
+    return arr.reduce(function(acc, num) {
+        return acc + num;
+    }, 0);
+})(numbers);
+
+// Printing the result
+console.log(sum); // Output: 15
+---------------------------------------------------------------------------------------------
+3. Using Arrow Functions
+// Sample array of numbers
+const numbers = [1, 2, 3, 4, 5];
+
+// Using reduce with an arrow function to compute the sum
+const sum = numbers.reduce((acc, num) => acc + num, 0);
+
+// Printing the result
+console.log(sum); // Output: 15
+*************************************************************************************************
+Question (4) Return all the prime numbers in an array
+(a) Using Anonymous Function
+// Sample array of numbers
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+// Anonymous function to check if a number is prime
+const primeNumbers = numbers.filter(function(num) {
+    if (num <= 1) {
+        return false;
+    }
+    for (let i = 2; i <= Math.sqrt(num); i++) {
+        if (num % i === 0) {
+            return false;
+        }
+    }
+    return true;
+});
+
+console.log(primeNumbers); // Output: [2, 3, 5, 7]
+-----------------------------------------------------------------------------
+(b) Using Immediately Invoked Function Expression (IIFE)
+// Sample array of numbers
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+// IIFE to immediately filter prime numbers
+const primeNumbers = (function(arr) {
+    return arr.filter(function(num) {
+        if (num <= 1) {
+            return false;
+        }
+        for (let i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i === 0) {
+                return false;
+            }
+        }
+        return true;
+    });
+})(numbers);
+
+console.log(primeNumbers); // Output: [2, 3, 5, 7]
+-------------------------------------------------------------------------------
+(c)Using Arrow Function
+
+// Sample array of numbers
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+// Arrow function to check if a number is prime
+const isPrime = num => {
+    if (num <= 1) {
+        return false;
+    }
+    for (let i = 2; i <= Math.sqrt(num); i++) {
+        if (num % i === 0) {
+            return false;
+        }
+    }
+    return true;
+};
+
+// Using filter with arrow function to get prime numbers
+const primeNumbers = numbers.filter(num => isPrime(num));
+
+console.log(primeNumbers); // Output: [2, 3, 5, 7]
+*********************************************************************************************************************************
+Question (5) Return all the palindromes in an array
+
+(a) Using Anonymous Function
+// Sample array of strings
+const words = ["level", "radar", "apple", "stats", "hello"];
+
+// Anonymous function to check if a string is palindrome
+const palindromes = words.filter(function(word) {
+    const reversed = word.split('').reverse().join('');
+    return word === reversed;
+});
+
+console.log(palindromes); // Output: ["level", "radar", "stats"]
+---------------------------------------------------------------------------------------
+(b) Using Immediately Invoked Function Expression (IIFE)
+// Sample array of strings
+const words = ["level", "radar", "apple", "stats", "hello"];
+
+// IIFE to immediately filter palindromes
+const palindromes = (function(arr) {
+    return arr.filter(function(word) {
+        const reversed = word.split('').reverse().join('');
+        return word === reversed;
+    });
+})(words);
+
+console.log(palindromes); // Output: ["level", "radar", "stats"]
+----------------------------------------------------------------------------------------
+(c) Using Arrow Function
+// Sample array of strings
+const words = ["level", "radar", "apple", "stats", "hello"];
+
+// Arrow function to check if a string is palindrome
+const isPalindrome = word => {
+    const reversed = word.split('').reverse().join('');
+    return word === reversed;
+};
+
+// Using filter with arrow function to get palindromes
+const palindromes = words.filter(word => isPalindrome(word));
+
+console.log(palindromes); // Output: ["level", "radar", "stats"]
+**********************************************************************************************
+Question (6) Return median of two sorted arrays of the same size.
+(a) Using Anonymous Function
+// Sample arrays (assuming both are sorted)
+const arr1 = [1, 3, 5, 7, 9];
+const arr2 = [2, 4, 6, 8, 10];
+
+// Anonymous function to find median of two sorted arrays of the same size
+const median = function(arr1, arr2) {
+    const merged = arr1.concat(arr2).sort((a, b) => a - b);
+    const length = merged.length;
+    
+    if (length % 2 === 0) {
+        const mid = length / 2;
+        return (merged[mid - 1] + merged[mid]) / 2;
+    } else {
+        return merged[Math.floor(length / 2)];
+    }
+};
+
+console.log(median(arr1, arr2)); // Output: 5.5
+----------------------------------------------------------------------------------
+(b) Using Immediately Invoked Function Expression (IIFE)
+// Sample arrays (assuming both are sorted)
+const arr1 = [1, 3, 5, 7, 9];
+const arr2 = [2, 4, 6, 8, 10];
+
+// IIFE to immediately find median of two sorted arrays of the same size
+const median = (function(arr1, arr2) {
+    const merged = arr1.concat(arr2).sort((a, b) => a - b);
+    const length = merged.length;
+    
+    if (length % 2 === 0) {
+        const mid = length / 2;
+        return (merged[mid - 1] + merged[mid]) / 2;
+    } else {
+        return merged[Math.floor(length / 2)];
+    }
+})(arr1, arr2);
+
+console.log(median); // Output: 5.5
+****************************************************************************************************************************
+Question (7) Remove duplicates from an array
+(a) Using Anonymous Function
+// Sample array with duplicates
+const array = [1, 2, 3, 4, 2, 3, 5, 6, 1];
+
+// Anonymous function to remove duplicates from an array
+const uniqueArray = function(arr) {
+    return arr.filter(function(item, index) {
+        return arr.indexOf(item) === index;
+    });
+};
+
+const result = uniqueArray(array);
+console.log(result); // Output: [1, 2, 3, 4, 5, 6]
+-------------------------------------------------------------------------------------------
+(b) Using Immediately Invoked Function Expression (IIFE)
+// Sample array with duplicates
+const array = [1, 2, 3, 4, 2, 3, 5, 6, 1];
+
+// IIFE to immediately remove duplicates from an array
+const uniqueArray = (function(arr) {
+    return arr.filter(function(item, index) {
+        return arr.indexOf(item) === index;
+    });
+})(array);
+
+console.log(uniqueArray); // Output: [1, 2, 3, 4, 5, 6]
+********************************************************************************************
+Question (9) Rotate an array by k times
+(a) Using Anonymous Function
+// Sample array and number of rotations
+const array = [1, 2, 3, 4, 5];
+const k = 2; // Number of rotations
+
+// Anonymous function to rotate the array by k times
+const rotateArray = function(arr, k) {
+    const n = arr.length;
+    k = k % n; // In case k is larger than array length
+    return arr.slice(-k).concat(arr.slice(0, -k));
+};
+
+const result = rotateArray(array, k);
+console.log(result); // Output: [4, 5, 1, 2, 3]
+--------------------------------------------------------------------------------
+(b) Using Immediately Invoked Function Expression (IIFE)
+// Sample array and number of rotations
+const array = [1, 2, 3, 4, 5];
+const k = 2; // Number of rotations
+
+// IIFE to immediately rotate the array by k times
+const rotatedArray = (function(arr, k) {
+    const n = arr.length;
+    k = k % n; // In case k is larger than array length
+    return arr.slice(-k).concat(arr.slice(0, -k));
+})(array, k);
+
+console.log(rotatedArray); // Output: [4, 5, 1, 2, 3]
+
+
+
+
+
