@@ -55,8 +55,13 @@ let myResume={
     ]
   }
   console.log(myResume);
+<<<<<<< HEAD
   ************************************************************************************************
   Question (2) : For the above JSON data iterate over all for loops (for,for in,for of,for Each)
+=======
+********************************************************************************************************************************************
+Question (2) : For the above JSON data iterate over all for loops (for,for in,for of,for Each)
+>>>>>>> 509a607833d632e9d1dfca26ea221a195ddfcc32
 
   var json = [{
     "id" : "Anitha1256", 
@@ -123,4 +128,8 @@ screen.height
 screen.availWidth
 screen.availHeight
 screen.colorDepth
+<<<<<<< HEAD
 screen.pixelDepth
+=======
+screen.pixelDepth
+>>>>>>> 509a607833d632e9d1dfca26ea221a195ddfcc32
